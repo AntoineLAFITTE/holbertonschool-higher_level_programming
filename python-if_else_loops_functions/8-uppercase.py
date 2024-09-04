@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     for char in str:
         # Check if character is lowercase (ASCII between 97 et 122)
