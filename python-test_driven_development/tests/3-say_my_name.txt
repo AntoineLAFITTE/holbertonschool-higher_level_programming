@@ -1,0 +1,48 @@
+============================
+How to Use 3-say_my_name.py
+============================
+
+This module defines a function ``say_my_name(first_name, last_name)``.
+
+Usage
+=====
+
+``say_my_name(...)`` prints a message introducing the person by combining
+``first_name`` and ``last_name``.
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+The function can handle cases where only one name is provided.
+
+::
+
+    >>> say_my_name("Bob")
+    My name is Bob
+
+If both the first name and the last name are provided, they will be printed together.
+
+::
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+Invalid Inputs
+==============
+
+Both ``first_name`` and ``last_name`` must be strings. If not, a TypeError is raised.
+
+::
+
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name("Walter", 42)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
