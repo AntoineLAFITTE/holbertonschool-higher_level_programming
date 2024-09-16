@@ -6,7 +6,8 @@ This module defines a class Square.
 
 class Square:
     """
-    This class defines a square with a private instance attributes: size and position.
+    This class defines a square with a private
+    instance attributes: size and position.
     Size validation is performed to ensure it is a positive integer.
     Position validation ensures it is a tuple of two positive integers.
     """
@@ -93,7 +94,8 @@ class Square:
 
     def my_print(self):
         """
-        Prints the square with the character # to stdout, respecting the position.
+        Prints the square with the character # to stdout,
+        respecting the position.
 
         If size is 0, prints an empty line.
         """
