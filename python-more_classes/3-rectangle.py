@@ -6,10 +6,11 @@ This module defines a class Rectangle.
 
 class Rectangle:
     """
-    This class defines a rectangle with private instance attributes: width and height.
+    This class defines a rectangle with
+    private instance attributes: width and height.
     Both attributes have getter and setter methods with validation.
-    It also has methods to calculate the area and perimeter of the rectangle, and
-    provides a string representation of the rectangle.
+    It also has methods to calculate the area and perimeter of the rectangle,
+    and provides a string representation of the rectangle.
     """
 
     def __init__(self, width=0, height=0):
@@ -97,7 +98,8 @@ class Rectangle:
         Calculates the perimeter of the rectangle.
 
         Returns:
-            int: The perimeter of the rectangle, or 0 if either width or height is 0.
+            int: The perimeter of the rectangle,
+            or 0 if either width or height is 0.
         """
         if self.__width == 0 or self.__height == 0:
             return 0
