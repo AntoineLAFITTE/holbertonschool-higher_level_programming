@@ -9,6 +9,7 @@ class Rectangle:
     This class defines a rectangle with
     private instance attributes: width and height.
     Both attributes have getter and setter methods with validation.
+    It also has methods to calculate the area and perimeter of the rectangle.
     """
 
     def __init__(self, width=0, height=0):
@@ -81,3 +82,24 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """
+        Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle (width * height).
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """
+        Calculates the perimeter of the rectangle.
+
+        Returns:
+            int: The perimeter of the rectangle,
+            or 0 if either width or height is 0.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
