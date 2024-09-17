@@ -10,4 +10,3 @@ class Rectangle:
     Currently, it has no attributes or methods.
     """
     pass
-
