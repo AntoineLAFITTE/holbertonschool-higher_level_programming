@@ -6,7 +6,8 @@ This module defines a class Rectangle.
 
 class Rectangle:
     """
-    This class defines a rectangle with private instance attributes: width and height.
+    This class defines a rectangle with
+    private instance attributes: width and height.
     Both attributes have getter and setter methods with validation.
     """
 
@@ -22,8 +23,8 @@ class Rectangle:
             TypeError: If width or height is not an integer.
             ValueError: If width or height is less than 0.
         """
-        self.height = height  #Calls the setter to validate
-        self.width = width  #Calls the setter to validate
+        self.height = height  # Calls the setter to validate
+        self.width = width  # Calls the setter to validate
 
     @property
     def width(self):
