@@ -10,11 +10,11 @@ class Rectangle:
     private instance attributes: width and height.
     Both attributes have getter and setter methods with validation.
     It also has methods to calculate the area and perimeter of the rectangle,
-    provides string and representation of
-    the rectangle, detects instance deletion,
+    provides string and representation of the rectangle,
+    detects instance deletion,
     and keeps track of the number of instances.
-    The string representation of the rectangle can
-    be customized with print_symbol.
+    The string representation of the rectangle can be
+    customized with print_symbol.
     """
 
     # Public class attributes
@@ -116,14 +116,14 @@ class Rectangle:
 
     def __str__(self):
         """
-        Provides a string representation of the rectangle using
-        the character in print_symbol.
+        Provides a string representation of the rectangle using the
+        character in print_symbol.
 
         If width or height is 0, returns an empty string.
 
         Returns:
-            str: A string representing the rectangle with the character(s)
-            stored in print_symbol.
+            str: A string representing the rectangle with
+            the character(s) stored in print_symbol.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
@@ -134,8 +134,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Provides a string representation of the rectangle that can
-        be used with eval()
+        Provides a string representation of the
+        rectangle that can be used with eval()
         to create a new instance of the rectangle.
 
         Returns:
@@ -175,3 +175,16 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """
+        Returns a new Rectangle instance with width and height equal to size.
+
+        Args:
+            size (int): The size of the square (width == height).
+
+        Returns:
+            Rectangle: A new rectangle instance where width == height == size.
+        """
+        return cls(size, size)
