@@ -1,4 +1,10 @@
+How to Use 1-mylist.py
+===========================
 
+This module defines a list of integers using the `MyList` class.
+
+===========================
+# main file:
 #!/usr/bin/python3
 MyList = __import__('1-my_list').MyList
 
