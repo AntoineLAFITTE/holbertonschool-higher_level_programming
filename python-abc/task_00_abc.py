@@ -11,13 +11,13 @@ class Animal(ABC):
         pass
 
 class Dog(Animal):
-    """Creates Dog class"""
+    """Creates Sublclass Dog of Animal class"""
     def sound(self):
         """Creates the method sound for Dog"""
         return "Bark"
 
 class Cat(Animal):
-    """Creates Cat class"""
+    """Creates Subclass Cat of Animal class"""
     def sound(self):
         """Creates method sound for Cat"""
         return "Meow"
