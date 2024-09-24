@@ -52,7 +52,8 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """This subclass represents a rectange
+    """This subclass represents a rectangle
+
     Attributes:
         width (float): The width of the rectangle
         height (float): The height of the rectangle
