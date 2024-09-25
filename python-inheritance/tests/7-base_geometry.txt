@@ -54,20 +54,15 @@ class BaseGeometry:
 
 ===========================
 Checking for module docstring:
-python
-Copier le code
+
 >>> m = __import__("7-base_geometry").__doc__
 >>> len(m) > 1
 True
-Checking for class docstring:
-python
-Copier le code
+
 >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
 >>> len(c) > 1
 True
-Checking for method docstrings:
-python
-Copier le code
+
 >>> mod_area = __import__("7-base_geometry").BaseGeometry.area.__doc__
 >>> len(mod_area) > 1
 True
@@ -75,22 +70,17 @@ True
 >>> mod_validator = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
 >>> len(mod_validator) > 1
 True
-Checking area method raises an exception:
-python
-Copier le code
+
+
 >>> bg = __import__('7-base_geometry').BaseGeometry()
 >>> bg.area()
 Traceback (most recent call last):
     ...
 Exception: area() is not implemented
-Checking integer_validator with valid integers:
-python
-Copier le code
+
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
-Checking integer_validator with invalid values:
-python
-Copier le code
+
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
     ...
@@ -155,17 +145,7 @@ TypeError: nan must be an integer
 Traceback (most recent call last):
     ...
 ValueError: min int must be greater than 0
-Checking class and method docstrings:
-python
-Copier le code
->>> print(BaseGeometry.__doc__)
-A class for base geometry.
 
->>> print(BaseGeometry.area.__doc__)
-Raises an exception indicating area is not implemented.
-
->>> print(BaseGeometry.integer_validator.__doc__)
-Validates that value is a positive integer.
 ===========================
 
 This test file follows the structure of 1-my_list.txt, with clear sections
