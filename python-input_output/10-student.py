@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module containing the Student class"""
 
+
 class Student:
     """Defines a student with first name, last name, and age."""
 
