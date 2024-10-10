@@ -1,0 +1,36 @@
+import http.server
+import socketserver
+import json
+
+
+# Define a class for handle requests
+class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/':
+            self.send_response(200)  # OK status 200
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")  # text response
+        elif self.path == '/data':
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            response = {"name": "John", "age": 30, "city": "New York"}
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON resp
+        elif self.path == '/status':
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            response = {"status": "OK"}
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+        else:
+            self.send_error(404, "Endpoint not found")
+
+
+# Set up the server on port 8000 : voir socketserver module ("TCPServer")
+PORT = 8000
+Handler = SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving on port {PORT}")
+    httpd.serve_forever()
