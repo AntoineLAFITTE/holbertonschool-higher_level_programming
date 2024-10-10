@@ -11,17 +11,26 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")  # text response
-        elif self.path == '/data':
+        elif self.path == '/data':  # Implement /data endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON resp
-        elif self.path == '/status':
+        elif self.path == '/status':  # Implement /status endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"status": "OK"}
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+        elif self.path == '/info':  # Implement /info endpoint
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            response = {
+                "version": "1.0",
+                "description": "A simple API built with http.server"
+            }
             self.wfile.write(bytes(json.dumps(response), "utf-8"))
         else:
             self.send_error(404, "Endpoint not found")
