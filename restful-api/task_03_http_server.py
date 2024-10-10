@@ -10,13 +10,13 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)  # OK status 200
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")  # text response
+            self.wfile.write(b'"Hello, this is a simple API!"')  # text resp
         elif self.path == '/data':  # Implement /data endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             response = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSON resp
+            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSONresp
         elif self.path == '/status':  # Implement /status endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
