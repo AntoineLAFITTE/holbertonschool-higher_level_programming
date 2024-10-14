@@ -3,6 +3,7 @@ import json
 
 PORT = 8000  # Set up the server on port 8000
 
+
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """HTTP Server handling GET requests"""
 
@@ -17,25 +18,27 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            response = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))  # JSONresp
+            data = {"name": "John", "age": 30, "city": "New York"}
+            self.wfile.write(bytes(json.dumps(data), "utf-8"))  # JSONresp
         elif self.path == '/status':  # Implement /status endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            response = {"status": "OK"}
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+            self.wfile.write(b"OK")
         elif self.path == '/info':  # Implement /info endpoint
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            response = {
+            info = {
                 "version": "1.0",
                 "description": "A simple API built with http.server"
             }
-            self.wfile.write(bytes(json.dumps(response), "utf-8"))
+            self.wfile.write(json.dumps(info).encode())
         else:
-            self.send_error(404, "Endpoint not found")
+            self.send_response(404)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
