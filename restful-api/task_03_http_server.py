@@ -1,10 +1,9 @@
-import http.server
-import socketserver
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
 # Define a class for handle requests
-class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)  # OK status 200
@@ -36,10 +35,10 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_error(404, "Endpoint not found")
 
 
-# Set up the server on port 8000 : voir socketserver module ("TCPServer")
+# Set up the server on port 8000 : voir module ("TCPServer")
 PORT = 8000
-Handler = SimpleHTTPRequestHandler
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving on port {PORT}")
-    httpd.serve_forever()
+if __name__ == "__main__":
+    with HTTPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
+        print(f"Serving at port {PORT}")
+        httpd.serve_forever()
