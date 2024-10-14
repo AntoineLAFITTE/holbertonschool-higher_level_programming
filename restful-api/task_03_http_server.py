@@ -1,10 +1,13 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
+PORT = 8000  # Set up the server on port 8000
 
-# Define a class for handle requests
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    """HTTP Server handling GET requests"""
+
     def do_GET(self):
+        """Handles the GET requests"""
         if self.path == '/':
             self.send_response(200)  # OK status 200
             self.send_header("Content-type", "text/plain")
@@ -34,9 +37,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         else:
             self.send_error(404, "Endpoint not found")
 
-
-# Set up the server on port 8000 : voir module ("TCPServer")
-PORT = 8000
 
 if __name__ == "__main__":
     with HTTPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
