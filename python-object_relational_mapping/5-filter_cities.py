@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-A script that lists all cities of a given state from the database hbtn_0e_4_usa.
+A script that lists all cities of a given state
+from the database hbtn_0e_4_usa.
 
 The script takes four arguments:
 1. MySQL username
