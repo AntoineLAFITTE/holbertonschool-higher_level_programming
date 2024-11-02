@@ -40,9 +40,12 @@ if __name__ == "__main__":
     # Execute the SQL query to retrieve states with names starting with 'N'
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-    # Fetch all results and print them one by one
-    for state in cursor.fetchall():
-        print(state)
+    # Fetching all rows in a list of lists
+    states = cursor.fetchall()
+    # Iterate over each rows to print the states
+    for state in states:
+        if state[1][0] == 'N':
+            print(state)
 
     # Close the cursor and the database connection
     cursor.close()
