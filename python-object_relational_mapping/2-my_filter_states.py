@@ -42,7 +42,7 @@ if __name__ == "__main__":
     query = (
         "SELECT * FROM states "
         "WHERE name = '{}' "
-        "ORDER BY id ASC"
+        "ORDER BY id ASC LIMIT 1"
     ).format(state_name_searched)
     cursor.execute(query)
 
