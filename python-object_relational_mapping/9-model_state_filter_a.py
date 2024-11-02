@@ -39,10 +39,10 @@ if __name__ == "__main__":
 
     # Query all State objects containing 'a' and order by id
     states_with_a = (
-    session.query(State)
-    .filter(State.name.like('%a%'))
-    .order_by(State.id)
-    .all()
+        session.query(State)
+        .filter(State.name.like('%a%'))
+        .order_by(State.id)
+        .all()
     )
 
     # Print each state's id and name
