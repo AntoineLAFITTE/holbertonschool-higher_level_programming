@@ -10,10 +10,12 @@ The script takes four arguments:
 4. State name to search for
 
 Usage:
-    ./2-my_filter_states.py <mysql_username> <mysql_password> <database_name> <state_name>
+    ./2-my_filter_states.py
+    <mysql_username> <mysql_password> <database_name> <state_name>
 
 The script connects to a MySQL server running on localhost at port 3306
-and retrieves states with a name matching the user input in ascending order by id.
+and retrieves states with a name matching the user input
+in ascending order by id.
 """
 
 import MySQLdb
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     query = (
         "SELECT * FROM states "
         "WHERE name = '{}' "
-        "ORDER BY id ASC LIMIT 1"
+        "ORDER BY id ASC"
     ).format(state_name_searched)
     cursor.execute(query)
 
