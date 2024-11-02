@@ -48,7 +48,8 @@ if __name__ == "__main__":
 
     # Fetch all results and print them one by one
     for state in cursor.fetchall():
-        print(state)
+        if state[1] == state_name_searched:
+            print(state)
 
     # Close the cursor and the database connection
     cursor.close()
